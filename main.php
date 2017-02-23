@@ -22,10 +22,17 @@ for($i=0; $i < 4; $i++){
         array_push($playerHand[$i], $val);
     }
 }
-
+function getHand(){
+    $hand = array_pop($playerHand);
+    for($j=0;$j<count($hand); $j++){
+        $suitIndex = floor($hand[$j]/13);
+        $suit = $suitArray[$suitIndex];
+        $num = ($hand[$j]%13)+1;
+        echo  "<img src='../img/cards/cards/$suit/$num.png'/>";
+    }
+}
 for($i=0; $i<5; $i++){
     $hand = array_pop($playerHand);
-    //echo "<br/>";
     for($j=0;$j<count($hand); $j++){
         $suitIndex = floor($hand[$j]/13);
         $suit = $suitArray[$suitIndex];
