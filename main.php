@@ -7,7 +7,11 @@ $Player3 = array();
 $Player4 = array();
 $playerHand = array($Player1, $Player2, $Player3, $Player4);
 $suitArray = array("spades", "hearts", "clubs", "diamonds");
+$Players = array("Daniel", "Antoni", "Phil", "Phil H."); //Array of players
 $playerSum = array(0, 0, 0, 0);
+
+
+shuffle($Players); //We need the players to be "Random"
 
 for($i=0; $i < 52; $i++){
     $deck[] = $i;
@@ -33,6 +37,7 @@ function generateGame(){
             $suitIndex = floor($hand[$j]/13);
             $suit = $suitArray[$suitIndex];
             $num = ($hand[$j]%13)+1;
+            //echo  "<img src='/Taurus/img/cards/$suit/$num.png'/>"; //Sorry my c9 is weird with pictures
             echo  "<img src='../img/cards/cards/$suit/$num.png'/>";
         }
         echo "<br/>";
@@ -43,10 +48,12 @@ function getHand($player){
     global $playerHand;
     global $suitArray;
     $hand = $playerHand[$player];
+    PrintPlayer($player);
     for($j=0;$j<count($hand); $j++){
         $suitIndex = floor($hand[$j]/13);
         $suit = $suitArray[$suitIndex];
         $num = ($hand[$j]%13)+1;
+        //echo  "<img src='/Taurus/img/cards/$suit/$num.png'/>";  //Sorry my C9 is weird with pictures
         echo  "<img src='../img/cards/cards/$suit/$num.png'/>";
     }
 }
@@ -95,7 +102,11 @@ function getPointsWon(){
     }
     
 }
-
+//Simple function to display players
+function PrintPlayer($index){   
+    global $Players;
+    echo "<img id = players src='/Taurus/img/Players/" . $Players[$index] . ".jpg'/>";
+}
 ?>
 
 
@@ -103,20 +114,43 @@ function getPointsWon(){
 <html>
     <head>
         <title> Arrays Review </title>
+    <style>
+        body {
+            background-color:#54cc49;
+        }
+        #outside {
+            text-align:left;
+        }
+        #first, #second, #third, #forth {
+            text-align:center;
+            right: 0px;
+            width: 700px;
+            padding: 9px;
+            width:1000px;
+        }
+        #players {
+            padding: 9px;
+        }
+        h1 {
+            text-align: center;
+        }
+
+    </style>
     </head>
     <body>
-      
-      <?=getHand(0)?>
-      <?=getScore(0)?>
-      <br/>
-      <?=getHand(1)?>
-      <?=getScore(1)?>
-      <br/>
-      <?=getHand(2)?>
-      <?=getScore(2)?>
-      <br/>
-      <?=getHand(3)?>
-      <?=getScore(3)?>
-      
+        <h1>SilverJack</h1>
+        <div id= "outside">
+        <div id = "first"><?=getHand(0)?>
+        <?=getScore(0)?></div>
+        
+        <div id = "second"><?=getHand(1)?>
+        <?=getScore(1)?></div>
+
+        <div id = "third"><?=getHand(2)?>
+        <?=getScore(2)?></div>
+        
+        <div id = "forth"><?=getHand(3)?>
+        <?=getScore(3)?></div>
+        </div>
     </body>
 </html>
