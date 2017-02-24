@@ -113,16 +113,20 @@ function PrintPlayer($index){
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Arrays Review </title>
+        <title> Silverjack </title>
     <style>
         body {
+            background-image: url("/Taurus/img/Table.svg");
             background-color:#54cc49;
+            background-size: 1920px 1300px;
+            background-repeat: no-repeat;
         }
-        #outside {
+        #outside {    
+            margin-left: 20px;
+            margin-right: 50%;
+        }
+        #second, #third, #forth {
             text-align:left;
-        }
-        #first, #second, #third, #forth {
-            text-align:center;
             right: 0px;
             width: 700px;
             padding: 9px;
@@ -132,25 +136,90 @@ function PrintPlayer($index){
             padding: 9px;
         }
         h1 {
-            text-align: center;
+            text-align:center;
         }
-
+        #TLogo {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 60px;
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+        #first {
+            transform: rotate(30deg);
+            float: right;
+            margin: 0 0 10px 10px;
+            width: 700px;
+            padding: 9px;
+            width: 300px;
+            position: absolute;
+            left: 200px;
+            right: 1450px;
+            top: 400px;
+            bottom: 900px;
+            
+        }
+        #second {
+            transform: rotate(15deg);
+            float: right;
+            margin: 0 0 10px 10px;
+            width: 700px;
+            padding: 9px;
+            width: 400px;
+            position: absolute;
+            left: 500px;
+            right: 1100px;
+            top: 600px;
+            bottom: 850px;
+        }
+        #third {
+            transform: rotate(-15deg);
+            float: right;
+            margin: 0 0 10px 10px;
+            width: 700px;
+            padding: 9px;
+            width: 400px;
+            position: absolute;
+            left: 1000px;
+            right: 800px;
+            top: 600px;
+            bottom: 800px;
+        }
+        #forth {
+            transform: rotate(-30deg);
+            float: right;
+            margin: 0 0 10px 10px;
+            width: 700px;
+            padding: 9px;
+            width: 300px;
+            position: absolute;
+            left: 1450px;
+            right: 200px;
+            top: 400px;
+            bottom: 900px;
+        }
     </style>
-    </head>
-    <body>
-        <h1>SilverJack</h1>
-        <div id= "outside">
-        <div id = "first"><?=getHand(0)?>
-        <?=getScore(0)?></div>
-        
-        <div id = "second"><?=getHand(1)?>
-        <?=getScore(1)?></div>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <div id = "third"><?=getHand(2)?>
-        <?=getScore(2)?></div>
+    </head>
+    
+    <body>
         
-        <div id = "forth"><?=getHand(3)?>
-        <?=getScore(3)?></div>
+        <img id= "TLogo" src = "/Taurus/img/Logo/Logo.png" alt = "Logo" />
+        <div id= "outside">
+        <div id = "first"><?=getHand(0)?></div>
+        <div id = "score1"><?=getScore(0)?></div>
+        
+        <div id = "second"><?=getHand(1)?></div>
+        <div id = "score2"><?=getScore(1)?></div>
+
+        <div id = "third"><?=getHand(2)?></div>
+        <div id = "score3"><?=getScore(2)?></div>
+        
+        <div id = "forth"><?=getHand(3)?></div>
+        <div id = "score4"><?=getScore(3)?></div>
         </div>
     </body>
 </html>
